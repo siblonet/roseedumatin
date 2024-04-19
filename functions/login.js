@@ -21,8 +21,10 @@ async function Login() {
             loading.setAttribute("onclick", "Login()");
             loading.innerText = "Connecter";
         } else if (response.token) {
-            console.log(response.token);
+            sessionStorage.setItem('tirhaka', response.token);
             loading.innerText = "Connecté";
+            console.log(response.token);
+            window.location.href = "/dashboard";
         } else if (response.ee) {
             alert("Identifient inccorect");
             loading.setAttribute("onclick", "Login()");
@@ -34,7 +36,5 @@ async function Login() {
 
 
     }
-
-
 
 };

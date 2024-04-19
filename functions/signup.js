@@ -31,6 +31,8 @@ async function SignUp() {
                 loading.setAttribute("onclick", "SignUp()");
                 loading.innerText = "CREER";
             } else if (response.token) {
+                sessionStorage.setItem('tirhaka', response.token);
+                window.location.href = "/dashboard";
                 console.log(response.token);
                 loading.innerText = "Compte créé";
             } else if (response.ee) {

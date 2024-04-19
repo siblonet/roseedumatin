@@ -88,6 +88,24 @@ STYLE SHEET INDEXING
   --line-height-b1: 22px;
 }
 
+
+*::-webkit-scrollbar-track {
+  background-color: #8a1242;
+}
+
+*::-webkit-scrollbar {
+  width: 12px;
+  background-color: #F5F5F5;
+}
+
+*::-webkit-scrollbar-thumb {
+  border-radius: 12px;
+  background-color: #ee2173;
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
+}
+
+
 /*-------------------------
     Reset Styles
 -------------------------*/
