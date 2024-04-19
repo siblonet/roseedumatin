@@ -1,4 +1,19 @@
 [[redirects]]
+from = "connexion"
+to = "/pages/login.html"
+status = 200
+
+[[redirects]]
+from = "creation"
+to = "/pages/signup.html"
+status = 200
+
+[[redirects]]
 from = "rendez-vous"
 to = "/pages/rendezvous.html"
+status = 200
+
+[[redirects]]
+from = "dashboard"
+to = "/pages/dashboard.html"
 status = 200
