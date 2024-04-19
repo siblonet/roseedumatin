@@ -1105,11 +1105,11 @@ ul.pagination li a.current {
 }
 
 .stylen-btn.btn-sec {
-  font-weight: 700;
-  font-size: 16px;
+  font-weight: 400;
+  font-size: 10px;
   letter-spacing: 0.01em;
-  border-radius: 32px 0;
-  padding: 13px 17.5px;
+  border-radius: 25px 0;
+  padding: 7px 9.5px;
   display: inline-block;
   position: relative;
   background: var(--gradient);
@@ -1118,7 +1118,7 @@ ul.pagination li a.current {
 }
 
 .stylen-btn.btn-sec:hover {
-  border-radius: 0 32px;
+  border-radius: 0 25px;
 }
 
 .stylen-btn.btn-large {
