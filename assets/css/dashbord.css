@@ -107,3 +107,26 @@
     background: var(--gradient);
 
 }
+
+.menudashboard {
+    cursor: pointer;
+    color: #ffffff !important;
+
+}
+
+.current {
+    color: var(--color-primary) !important;
+    cursor: default;
+}
+
+@media only screen and (max-width: 992px) {
+    .menudashboard {
+        cursor: pointer;
+        color: #333333 !important;
+    }
+
+    .current {
+        color: var(--color-primary) !important;
+        cursor: default;
+    }
+}

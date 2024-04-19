@@ -1576,8 +1576,9 @@ nav .navbar-brand {
 @media only screen and (max-width: 991px) {
   .handling-navbar {
     background-color: #ffffff !important;
-  
+
   }
+
   .logodiv {
     display: none;
   }
@@ -1592,19 +1593,22 @@ nav .navbar-brand {
     display: none !important;
 
   }
-  .timepho{
+
+  .timepho {
     display: block !important;
   }
-  .mobile38{
+
+  .mobile38 {
     font-size: 48px !important;
   }
 }
 
 
-.timepho{
+.timepho {
   display: none;
 
 }
+
 .handling-brand {
   display: none;
 }
@@ -1660,7 +1664,6 @@ nav.navbar .mainmenu>.menu-item-has-children {
 }
 
 nav.navbar .mainmenu>.menu-item-has-children a:after {
-  content: '\f103';
   font-family: var(--font-awesome);
   position: absolute;
   right: 0;
@@ -1669,9 +1672,7 @@ nav.navbar .mainmenu>.menu-item-has-children a:after {
   font-size: 19px;
 }
 
-nav.navbar .mainmenu>.menu-item-has-children a.active:after {
-  color: var(--color-sec);
-}
+
 
 nav.navbar .mainmenu>.menu-item-has-children>a {
   position: relative;
@@ -1807,7 +1808,6 @@ nav.navbar .mainmenu>.menu-item-has-children:hover .stylen-submenu li {
   }
 
   nav.navbar .mainmenu>.menu-item-has-children a:after {
-    content: '+';
     font-family: var(--font-awesome);
     position: absolute;
     right: 0;

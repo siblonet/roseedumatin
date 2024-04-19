@@ -132,7 +132,22 @@
                     </button>
                     <div class="collapse navbar-collapse" id="mynavbar-1">
                         <ul class="navbar-nav ms-auto me-auto mainmenu">
+                            <li class="menu-item-has-children">
+                                <a class="menudashboard current" id="Rendez-vous"
+                                    onclick="ChangeService('Rendez-vous')">Rendez-vous</a>
+                            </li>
 
+                            <li class="menu-item-has-children">
+                                <a class="menudashboard" id="Services" onclick="ChangeService('Services')">Services</a>
+                            </li>
+
+                            <li class="menu-item-has-children">
+                                <a class="menudashboard" id="Clients" onclick="ChangeService('Clients')">Clients</a>
+                            </li>
+
+                            <li class="menu-item-has-children">
+                                <a class="menudashboard" id="Personnels" onclick="ChangeService('Personnels')">Personnels</a>
+                            </li>
                         </ul>
                         <div class="d-flex right-nav">
                             <a class="stylen-btn btn-primary right-arrow" onclick="Deconnecter()">Déconnecter</a>
@@ -173,7 +188,7 @@
 
             <div class="appointements">
                 <div class="appoint_data" id="appoint_data">
-                    
+
                 </div>
             </div>
         </section>
