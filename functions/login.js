@@ -12,7 +12,6 @@ async function Login() {
             password: password,
 
         };
-
         const response = await requesttoBackend('POST', 'tirhakaconnexion', data);
 
         if (!response) {
