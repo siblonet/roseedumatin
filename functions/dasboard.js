@@ -269,7 +269,7 @@ const ChangeService = (html_tag_id) => {
             break;
 
         default:
-            RendAccount()
+            AccountShow()
             break;
     }
 
@@ -404,7 +404,7 @@ const RendServicesAdmin = async () => {
     try {
         const APPOINTMEN_DATA = await requesttoBackend('GET', 'tirhakaservicegetting');
         add_service.innerHTML = `
-        <a data-toggle="modal" data-target="#addService" style="align-self: flex-end !important; color: #007bff; padding: 10px; cursor: pointer;" onclick="AddShow()">
+        <a style="align-self: flex-end !important; color: #007bff; padding: 10px; cursor: pointer;" onclick="AddShow()">
             Ajouter un service
         </a>
 `;
@@ -519,14 +519,6 @@ const RendServicesReloada = async (APPOINTMEN_DAT) => {
 
 
 
-/*name: string;
-phone: string;
-password: string;
-role: string;
-address: string;
-email: string;
-pushtoken: string;
-allow: boolean*/
 const RendClientAdmin = async () => {
     const appoint_data = document.getElementById('appoint_data');
     const vide_message = document.getElementById('vide_message');
@@ -555,10 +547,10 @@ const RendClientAdmin = async () => {
                         </div>
                     </div>
                 ` : '';
-            
+
                 appoint_data.innerHTML += tirhaclienHTML;
             });
-            
+
         } else {
 
             vide_message.innerText = "Pas de client en linge";
@@ -600,10 +592,10 @@ const RendPersonelAdmin = async () => {
                         </div>
                     </div>
                 ` : '';
-            
+
                 appoint_data.innerHTML += tirhaclienHTML;
             });
-            
+
         } else {
 
             vide_message.innerText = "Vos Employées n'ont pas créé de compte";
@@ -616,55 +608,55 @@ const RendPersonelAdmin = async () => {
 }
 
 
-const RendAccount = async () => {
-    const appoint_data = document.getElementById('appoint_data');
-    const vide_message = document.getElementById('vide_message');
-    appoint_data.innerHTML = "";
-    add_service.innerHTML = "";
-    try {
-        const APPOINTMEN_DATA = await requesttoBackend('GET', 'tirhakaappointmentgettingall');
-        if (APPOINTMEN_DATA.length > 0) {
-            vide_message.innerText = "Les rendez-vous programmé";
 
-            APPOINTMEN_DATA.forEach((appointment, index) => {
-                const appointmentHTML = `
-            <div class="appoin_service">
-                        <p class="titlerec">Service</p>
-                        <p>Service: <span>${appointment.services.service}</span></p>
-                        <p>Type de service: <span>${appointment.services.servicetype}</span></p>
-                        <p>Date: <span>${appointment.dete}</span></p>
-                        <p>L'heure: <span>${appointment.heure}</span></p>
-                    </div>
-                    <br>
-                    <div class="appoin_client">
-                        <p class="titlerec">Client</p>
-                        <p>Nom: <span>${appointment.client.name}</span></p>
-                        <p>Domicile: <span>${appointment.ville}, ${appointment.commune}, ${appointment.lieu}</span></p>
-                        <p>Tél: <span>${appointment.client.phone}</span></p>
-                        <p>Message: <span>${appointment.message}</span></p>
-                    </div>
-                    <br>
-                    <div class="action_btn">
-                        <a class="btnA _Acc">Accepter</a>
-                        <a class="btnA _Anu">Annuler</a>
-                    </div>
-            `;
-
-
-                appoint_data.innerHTML += appointmentHTML;
-            })
-        } else {
-
-            vide_message.innerText = "Pas de rendez-vous d'abord";
-
-        }
-    } catch (error) {
-        vide_message.innerText = "Erreur inconnu, actualisez";
-
+const AccountShow = async () => {
+    const accountinfo = await requesttoBackend('GET', `gettingmyaccountinfo/${user_id}`);
+    if (accountinfo) {
+        document.getElementById('accountid').value = accountinfo._id;
+        document.getElementById('full_name').value = accountinfo.name;
+        document.getElementById('email').value = accountinfo.email;
+        document.getElementById('phone').value = accountinfo.phone;
+        document.getElementById('address').value = accountinfo.address;
     }
+
+    document.getElementById('accountView').classList.add("showService");
 }
 
+const UpdateUser = async () => {
+    const accountid = document.getElementById('accountid').value;
+    const full_name = document.getElementById('full_name').value;
+    const email = document.getElementById('email').value;
+    const phone = document.getElementById('phone').value;
+    const address = document.getElementById('address').value;
+    const loading = document.getElementById('loadinguser');
 
+    loading.removeAttribute("onclick");
+    loading.innerText = "En cours ...";
+    const data = {
+        name: full_name,
+        phone: phone,
+        address: address,
+        email: email,
+    };
+
+    const response = await requesttoBackend('PUT', `${accountid}`, data);
+    if (!response) {
+        alert("Échec, vérifiez votre connexion ou essayez plus tard.");
+        loading.setAttribute("onclick", "UpdateUser()");
+        loading.innerText = "Modifier";
+    } else if (response) {
+        loading.setAttribute("onclick", "UpdateUser()");
+        loading.innerText = "Modifier";
+        document.getElementById('accountView').classList.remove("showService");
+
+    }
+
+
+}
+
+const RemoveAccountShow = () => {
+    document.getElementById('accountView').classList.remove("showService");
+}
 
 const managerInit = async () => {
     const tolken = Logged_Checker();

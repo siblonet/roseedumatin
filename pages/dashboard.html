@@ -102,6 +102,57 @@
 
     </div>
 
+    <div class="addServiceView" id="accountView">
+        <form id="form-wizard" class="submit-form iputsfields">
+            <div style="width: 100%; align-items: center; justify-content: center; text-align: right; padding: 1%;">
+                <span
+                    style="cursor: pointer;; align-self: flex-end; color: #D51A65; font-size: 28px; font-weight: bold; padding: 1%; border-radius: 15px; background-color: #ffffff;"
+                    onclick="RemoveAccountShow()">x</span>
+            </div>
+
+            <div class="tab-content">
+                <div id="step-1" class="tab-pane" role="tabpanel" aria-labelledby="step-1" style="display: block;">
+                    <div class="row">
+                        <input type="hidden" id="accountid" value="">
+                        <div class="col-lg-6 col-md-6">
+                            <div class="form-group">
+                                <input type="text" class="form-control form-group" id="full_name" name="full_name"
+                                    placeholder="Nom & Prénom">
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6">
+                            <div class="form-group">
+                                <input type="email" class="form-control form-group" id="email" name="email"
+                                    placeholder="info@example.com">
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6">
+                            <div class="form-group">
+                                <input type="tel" class="form-control form-group" id="phone" name="phone"
+                                    placeholder="Numéro de téléphone">
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6 col-md-6">
+                            <div class="form-group">
+                                <input type="text" class="form-control form-group" id="address" name="address"
+                                    placeholder="address">
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="text-center">
+                    <a id="loadinguser" class="stylen-btn btn-primary paper-plane" onclick="UpdateUser()">Modifier</a>
+                </div>
+            </div>
+        </form>
+
+    </div>
+
+
     <!-- Main Wrapper Start -->
     <div id="main-wrapper" class="main-wrapper">
 
@@ -196,7 +247,7 @@
                 <div class="breadcrumb">
                     <ul>
                         <li><a href="/">Salon</a></li>
-                        <li><a class="active" id="username"> </a></li>
+                        <li><a class="active" id="username" style="cursor: pointer;" onclick="AccountShow()"> </a></li>
                     </ul>
                 </div>
                 <div class="heading">
@@ -221,7 +272,7 @@
 
                 </div>
 
-                <div class="appoint_parent"  id="appoint_data">
+                <div class="appoint_parent" id="appoint_data">
 
                 </div>
             </div>
