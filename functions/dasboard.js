@@ -187,7 +187,6 @@ const RendServicesAdmin = async () => {
     const appoint_data = document.getElementById('appoint_data');
     const vide_message = document.getElementById('vide_message');
     appoint_data.innerHTML = "";
-    vide_message.innerText = user_id;
 
 
     const APPOINTMEN_DATA = await requesttoBackend('GET', 'tirhakaappointmentgettingall');
