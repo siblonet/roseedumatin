@@ -41,7 +41,18 @@
     margin-bottom: 30px;
 }
 
+.longimage {
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    align-self: center;
+}
 
+.longimage img {
+    width: 100%;
+    height: 100%;
+}
 
 .action_btn {
     display: flex;
