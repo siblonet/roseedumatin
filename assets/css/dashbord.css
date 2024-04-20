@@ -29,6 +29,7 @@
     /*height: 100%;*/
 }
 
+
 .appoint_data {
     align-items: center;
     justify-content: center;
@@ -37,8 +38,10 @@
     padding: 2%;
     border-radius: 2%;
     border: 1px solid #cccccc;
-
+    margin-bottom: 30px;
 }
+
+
 
 .action_btn {
     display: flex;
@@ -129,4 +132,72 @@
         color: var(--color-primary) !important;
         cursor: default;
     }
+}
+
+.availa {
+    border-radius: 50px;
+    background-color: green;
+    height: 50px !important;
+    width: 150px !important;
+    overflow: hidden !important;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.availa p,
+.unavaila p,
+.supprima p {
+    text-align: center;
+    align-self: center;
+    padding-top: 10%;
+}
+
+.unavaila {
+    border-radius: 50px;
+    height: 50px !important;
+    width: 150px !important;
+    overflow: hidden !important;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: orange;
+}
+
+
+.supprima {
+    border-radius: 50px;
+    height: 50px !important;
+    width: 150px !important;
+    overflow: hidden !important;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: #8a1242;
+}
+
+
+
+.addServiceView {
+    position: absolute !important;
+    z-index: 9999 !important;
+    height: 100%;
+    width: 100%;
+    background-color: #000000c7;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding-top: 2%;
+    display: none;
+}
+
+.iputsfields {
+    background-color: #cccccc;
+    align-self: center;
+    padding: 2%;
+}
+
+.showService {
+    display: block;
+
 }

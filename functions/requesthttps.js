@@ -11,12 +11,16 @@ const requesttoBackend = async (method, endpoint, data = null) => {
     }
 
     const response = await fetch(Baseurl + endpoint, options);
-    const responseData = await response.json();
-
     if (!response.ok) {
         return false
     }
+    try {
+        const responseData = await response.json();
 
-    return responseData;
+        return responseData;
+    } catch (error) {
+        return [];
+    }
+
 };
 
