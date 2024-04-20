@@ -711,7 +711,7 @@ const managerInit = async () => {
             document.getElementById('menulist').innerHTML = menulistWorker;
 
             await RendDataAdmin();
-        } else if (wRole === "cleint") {
+        } else if (wRole === "client") {
 
 
             const menulistClient = `
