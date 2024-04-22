@@ -137,8 +137,8 @@
 
                         </ul>
                         <div class="d-flex right-nav">
-                            <a href="#form-wizard" class="stylen-btn btn-primary right-arrow">Prendre
-                                rendez-vous</a>
+                            <a href="#form-wizard" class="stylen-btn btn-primary right-arrow" id="homconnec">SE
+                                CONNECTER</a>
                         </div>
                     </div>
                 </nav>
@@ -198,29 +198,18 @@
                     <div class="tab-content">
                         <div id="step-1" class="tab-pane" role="tabpanel" aria-labelledby="step-1">
                             <div class="row">
-                                <div class="col-lg-4 col-md-6">
-                                    <select class="form-control form-group" name="category">
-                                        <option value="">SÉLECTIONNER UNE CATÉGORIE</option>
-                                        <option value="body">CORPS</option>
-                                        <option value="make_up">MAQUILLAGE</option>
-                                        <option value="hair">CHEVEUX</option>
-                                        <option value="skin_care">SOINS DE LA PEAU</option>
-                                    </select>
-                                </div>
-                                <div class="col-lg-4 col-md-6">
-                                    <select class="form-control form-group" name="services">
-                                        <option value="">SÉLECTIONNER DES SERVICES</option>
-                                        <option value="body">CORPS</option>
-                                        <option value="make_up">MAQUILLAGE</option>
-                                        <option value="hair">CHEVEUX</option>
-                                        <option value="skin_care">SOINS DE LA PEAU</option>
-                                    </select>
-                                </div>
-                                <div class="col-lg-4 col-md-6">
-                                    <select class="form-control form-group" name="employee">
+                                <div class="col-lg-6 col-md-6">
+                                    <select class="form-control form-group" name="servicetypehtml">
                                         <option value="">SÉLECTIONNER UN TYPE</option>
-                                        <option value="1">DOMICIL</option>
-                                        <option value="2">PRESENTIEL</option>
+                                        <option value="DOMICILE">DOMICILE</option>
+                                        <option value="SALON">PRESENTIEL</option>
+                                    </select>
+                                </div>
+
+                                <div class="col-lg-6 col-md-6">
+                                    <select class="form-control form-group" name="servicesselection"
+                                        id="serviceshtmlid">
+
                                     </select>
                                 </div>
                             </div>
@@ -231,6 +220,11 @@
                         <div id="step-3" class="tab-pane" role="tabpanel" aria-labelledby="step-3">
                             <div class="book-time">
                                 <div class="available-time" data-toggle="buttons">
+
+                                    <label class="btn"> 09 : 00
+                                        <input type="radio" value="9" name="time" class="time">
+                                    </label>
+
                                     <label class="btn"> 10 : 00
                                         <input type="radio" value="10" name="time" class="time">
                                     </label>
@@ -243,7 +237,7 @@
                                         <input type="radio" value="12" name="time" class="time">
                                     </label>
 
-                                    <label class="btn active"> 13 : 00
+                                    <label class="btn"> 13 : 00
                                         <input type="radio" value="13" name="time" class="time">
                                     </label>
 
@@ -271,48 +265,59 @@
                                         <input type="radio" value="19" name="time" class="time">
                                     </label>
 
-                                    <label class="btn"> 20 : 00
-                                        <input type="radio" value="20" name="time" class="time">
-                                    </label>
                                 </div>
                                 <div class="error-time text-center" style="text-align: center;"></div>
                             </div>
                         </div>
                         <div id="step-4" class="tab-pane" role="tabpanel" aria-labelledby="step-4">
                             <div class="row">
+                                <input type="hidden" value="pasconnecter" id="userid_rendez">
                                 <div class="col-lg-6 col-md-6">
                                     <div class="form-group">
                                         <input type="text" class="form-control form-group" name="first_name"
-                                            placeholder="Prénom">
+                                            placeholder="Nom & Prénom" id="full_name">
                                     </div>
                                 </div>
                                 <div class="col-lg-6 col-md-6">
                                     <div class="form-group">
-                                        <input type="text" class="form-control form-group" name="last_name"
-                                            placeholder="Nom de famille">
+                                        <input type="tel" class="form-control form-group" id="phone" name="phone"
+                                            placeholder="Numéro de téléphone">
                                     </div>
                                 </div>
                                 <div class="col-lg-6 col-md-6">
                                     <div class="form-group">
-                                        <input type="email" class="form-control form-group" name="email"
+                                        <input type="email" class="form-control form-group" id="email" name="email"
                                             placeholder="info@example.com">
                                     </div>
                                 </div>
                                 <div class="col-lg-6 col-md-6">
                                     <div class="form-group">
-                                        <input type="text" class="form-control form-group" name="phone"
-                                            placeholder="Numéro de téléphone">
+                                        <input type="text" class="form-control form-group" id="address" name="address"
+                                            placeholder="address">
                                     </div>
                                 </div>
 
+                                <div class="col-lg-6 col-md-6">
+                                    <div class="form-group">
+                                        <input type="password" class="form-control form-group" id="password"
+                                            name="password" placeholder="Mot de passe">
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-6 col-md-6">
+                                    <div class="form-group">
+                                        <input type="password" class="form-control form-group" id="password1"
+                                            name="password1" placeholder="Repetez le mot de passe">
+                                    </div>
+                                </div>
                             </div>
                             <div class="form-group">
                                 <textarea name="note" class="form-control form-group" id="note" rows="4"
-                                    placeholder="AJOUTER UNE DESCRIPTION"></textarea>
+                                    placeholder="ENTREZ UN MESSAGE SI NECCESSAIRE"></textarea>
                             </div>
                             <div class="text-center">
-                                <button type="submit" class="stylen-btn btn-primary paper-plane">VALIDÉ LE
-                                    RENDEZ-VOUS</button>
+                                <a style="cursor: pointer;" onclick="CreatAppointment()" id="loading" class="stylen-btn btn-primary paper-plane">VALIDEZ LE
+                                    RENDEZ-VOUS</a>
                             </div>
                         </div>
                     </div>
@@ -325,40 +330,7 @@
                     </div>
                 </form>
             </div>
-            <div class="modal fade" id="successModal" tabindex="-1" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <div class="text-center">
-                                <i class="fal fa-check-circle"></i>
-                                <h3>Appointment Booked Successfully!</h3>
-                            </div>
-
-                            <table class="table table-striped">
-                                <tr>
-                                    <th>Date:</th>
-                                    <td>22 March 2023</td>
-                                </tr>
-                                <tr>
-                                    <th>Time:</th>
-                                    <td>8:00 PM</td>
-                                </tr>
-                                <tr>
-                                    <th>Service</th>
-                                    <td>Full Body Message</td>
-                                </tr>
-                                <tr>
-                                    <th>Masseuse</th>
-                                    <td>Jqluine Sabrina</td>
-                                </tr>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            
         </section>
         <!--=====================================-->
         <!--=      Footer Style 1 Area Start    =-->
@@ -429,8 +401,12 @@
                 width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"
                 referrerpolicy="no-referrer-when-downgrade">
             </iframe>
+            <div class="longimage">
+                <img src="../assets/media/services/IMG_0550.JPG" alt="longimage">
+            </div>
         </footer>
     </div>
+
     <!-- Jquery Js -->
     <script src="../assets/js/vendor/jquery-3.6.0.min.js"></script>
     <script src="../assets/js/vendor/bootstrap.min.js"></script>
@@ -445,6 +421,11 @@
 
     <!-- Site Scripts -->
     <script src="../assets/js/app.js"></script>
+    <!-- local codes Js -->
+    <script src="../initializers/router.js"></script>
+    <script src="../initializers/convertisseur.js"></script>
+    <script src="../functions/requesthttps.js"></script>
+    <script src="../initializers/rendezvous.js"></script>
 </body>
 
 

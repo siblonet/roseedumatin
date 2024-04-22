@@ -618,8 +618,10 @@ const AccountShow = async () => {
         document.getElementById('phone').value = accountinfo.phone;
         document.getElementById('address').value = accountinfo.address;
     }
+    var myModal = new bootstrap.Modal($("#successModal"));
+    myModal.toggle();
 
-    document.getElementById('accountView').classList.add("showService");
+    //document.getElementById('accountView').classList.add("showService");
 }
 
 const UpdateUser = async () => {
@@ -665,6 +667,8 @@ const managerInit = async () => {
     } else {
         document.getElementById('username').innerText = tolken;
         if (isAdmin) {
+            document.getElementById('teams').style.display = "block";
+
             const menulistAdmin = `
                         <li class="menu-item-has-children">
                             <a class="menudashboard current" id="Rendez-vous"
@@ -694,6 +698,8 @@ const managerInit = async () => {
             await RendDataAdmin();
 
         } else if (wRole === "worker") {
+            document.getElementById('teams').style.display = "block";
+
             const menulistWorker = `
                             <li class="menu-item-has-children">
                             <a class="menudashboard current" id="Rendez-vous"
@@ -712,7 +718,7 @@ const managerInit = async () => {
 
             await RendDataAdmin();
         } else if (wRole === "client") {
-
+            document.getElementById('teams').style.display = "none";
 
             const menulistClient = `
                             <li class="menu-item-has-children">

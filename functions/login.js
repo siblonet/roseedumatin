@@ -22,7 +22,6 @@ async function Login() {
         } else if (response.token) {
             sessionStorage.setItem('tirhaka', response.token);
             loading.innerText = "Connecté";
-            console.log(response.token);
             window.location.href = "/dashboard";
         } else if (response.ee) {
             alert("Identifient inccorect");

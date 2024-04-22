@@ -30,6 +30,10 @@
 }
 
 
+#teams{
+    display: none;
+}
+
 .appoint_data {
     align-items: center;
     justify-content: center;

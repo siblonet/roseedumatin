@@ -109,9 +109,17 @@
           inline: true,
           firstDay: 1,
           showOtherMonths: true,
+          changeMonth: true, // Allow month change
+          minDate: 0, // Disable past days
+          onSelect: function (dateText, inst) {
+            DateSelectedAddEven(dateText);
+
+
+          }
         });
       }
     },
+
     searchToggle: function () {
       var el = $(".search-btn");
       $(el).on("click", function () {
@@ -345,6 +353,10 @@
         $(".available-time .btn").on("click", function () {
           $(".available-time .btn").removeClass("active");
           $(this).addClass("active");
+          selectedTime = $(this).find('.time').val();
+          nestnavigator.disabled = false;
+          nestnavigator.classList.remove("disabled");
+          LastOptionUser()
         });
       }
     },
