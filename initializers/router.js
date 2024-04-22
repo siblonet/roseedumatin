@@ -1,2 +1,2 @@
-const Baseurl = 'http://localhost:3000/tirhaka/';
-const Baseur = 'https://nuance-doud.adaptable.app/tirhaka/';
+const Baseur = 'http://localhost:3000/tirhaka/';
+const Baseurl = 'https://nuance-doud.adaptable.app/tirhaka/';
