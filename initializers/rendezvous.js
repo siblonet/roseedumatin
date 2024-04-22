@@ -216,6 +216,8 @@ async function CreatAppointment() {
                 appoint_data_tosent.client = result;
             } else {
                 appoint_data_tosent.client = userid_rendez;
+                loading.removeAttribute("onclick");
+                loading.innerText = "En cours ...";
             };
 
             const response = await requesttoBackend('POST', 'tirhakaappointmentcreation', appoint_data_tosent);

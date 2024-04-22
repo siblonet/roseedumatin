@@ -37,27 +37,32 @@ const RendDataAdmin = async () => {
 
             APPOINTMEN_DATA.forEach((appointment, index) => {
                 const appointmentHTML = `
-            <div class="appoin_service">
-                        <p class="titlerec">Service</p>
-                        <p>Service: <span>${appointment.services.service}</span></p>
-                        <p>Type de service: <span>${appointment.services.servicetype}</span></p>
-                        <p>Date: <span>${appointment.dete}</span></p>
-                        <p>L'heure: <span>${appointment.heure}</span></p>
+                    <div class="appoint_data">
+                        <div class="appoin_service">
+                                <p class="titlerec">Service</p>
+                                <p>Service: <span>${appointment.services.service}</span></p>
+                                <p>Type de service: <span>${appointment.services.servicetype}</span></p>
+                                <p>Date: <span>${appointment.dete}</span></p>
+                                <p>L'heure: <span>${appointment.heure}:00</span></p>
+                            </div>
+                            <br>
+                            <div class="appoin_client">
+                                <p class="titlerec">Client</p>
+                                <p>Nom: <span>${appointment.client.name}</span></p>
+                                <p>Domicile: <span>${appointment.client.address}</span></p>
+                                <p>Tél: <span>${appointment.client.phone}</span></p>
+                                <p>Message: <span>${appointment.message}</span></p>
+                            </div>
+                            <br>
+                            <div class="action_btn">
+                            <a class="btnA _Acc" ${appointment.worker && appointment.worker._id !== user_id ? 'disabled' : ''} onclick="AcceptingAppointmen('${appointment._id}')">
+                            ${appointment.statut !== "waiting" ? "C'est fait" : "Accepter"}
+                        </a>
+                            <a class="btnA _Anu" ${appointment.statut !== "waiting" ? 'disabled' : ''}>Annuler</a>
+                            </div>
+                        </div>
                     </div>
-                    <br>
-                    <div class="appoin_client">
-                        <p class="titlerec">Client</p>
-                        <p>Nom: <span>${appointment.client.name}</span></p>
-                        <p>Domicile: <span>${appointment.ville}, ${appointment.commune}, ${appointment.lieu}</span></p>
-                        <p>Tél: <span>${appointment.client.phone}</span></p>
-                        <p>Message: <span>${appointment.message}</span></p>
-                    </div>
-                    <br>
-                    <div class="action_btn">
-                        <a class="btnA _Acc">Accepter</a>
-                        <a class="btnA _Anu">Annuler</a>
-                    </div>
-            `;
+                        `;
 
 
                 appoint_data.innerHTML += appointmentHTML;
@@ -96,6 +101,24 @@ const RendDataAdmin = async () => {
 
 
 
+const AcceptingAppointmen = async (ida) => {
+    const data = {
+        statut: "En cours",
+        worker: user_id
+    };
+
+    const response = await requesttoBackend('PUT', `tirhakaappointmentstatusupdate/${ida}`, data);
+
+    if (!response) {
+        alert("Échec, vérifiez votre connexion ou essayez plus tard.");
+
+    } else if (response) {
+        window.location.reload();
+    }
+}
+
+
+
 const RendMesCharge = async () => {
     const appoint_data = document.getElementById('appoint_data');
     const vide_message = document.getElementById('vide_message');
@@ -103,33 +126,38 @@ const RendMesCharge = async () => {
     add_service.innerHTML = "";
 
     try {
-        const APPOINTMEN_DATA = await requesttoBackend('GET', `tirhakaappointmentgettingone/${user_id}`);
+        const APPOINTMEN_DATA = await requesttoBackend('GET', `gettingallmychargedapointment/${user_id}`);
         if (APPOINTMEN_DATA.length > 0) {
             vide_message.innerText = "Vos rendez-vous";
 
             APPOINTMEN_DATA.forEach((appointment, index) => {
+
                 const appointmentHTML = `
-            <div class="appoin_service">
-                        <p class="titlerec">Service</p>
-                        <p>Service: <span>${appointment.services.service}</span></p>
-                        <p>Type de service: <span>${appointment.services.servicetype}</span></p>
-                        <p>Date: <span>${appointment.dete}</span></p>
-                        <p>L'heure: <span>${appointment.heure}</span></p>
+                    <div class="appoint_data">
+
+                        <div class="appoin_service">
+                            <p class="titlerec">Service</p>
+                            <p>Service: <span>${appointment.services.service}</span></p>
+                            <p>Type de service: <span>${appointment.services.servicetype}</span></p>
+                            <p>Date: <span>${appointment.dete}</span></p>
+                            <p>L'heure: <span>${appointment.heure}:00</span></p>
+                        </div>
+                        <br>
+                        <div class="appoin_client">
+                            <p class="titlerec">Client</p>
+                            <p>Nom: <span>${appointment.client.name}</span></p>
+                            <p>Domicile: <span>${appointment.client.address}</span></p>
+                            <p>Tél: <span>${appointment.client.phone}</span></p>
+                            <p>Message: <span>${appointment.message}</span></p>
+                        </div>
+                        <br>
+                        <div class="action_btn">
+                            <a class="btnA _Acc">${appointment.statut !== "waiting" ? "C'est fait" : "Accepter"}</a>
+                            <a class="btnA _Anu" ${appointment.statut !== "waiting" ? 'disabled' : ''}>Annuler</a>
+                        </div>
+                       
                     </div>
-                    <br>
-                    <div class="appoin_client">
-                        <p class="titlerec">Client</p>
-                        <p>Nom: <span>${appointment.client.name}</span></p>
-                        <p>Domicile: <span>${appointment.ville}, ${appointment.commune}, ${appointment.lieu}</span></p>
-                        <p>Tél: <span>${appointment.client.phone}</span></p>
-                        <p>Message: <span>${appointment.message}</span></p>
-                    </div>
-                    <br>
-                    <div class="action_btn">
-                        <a class="btnA _Acc">Accepter</a>
-                        <a class="btnA _Anu">Annuler</a>
-                    </div>
-            `;
+                        `;
 
 
                 appoint_data.innerHTML += appointmentHTML;
@@ -172,14 +200,14 @@ const RendDataClient = async () => {
                     </div>
                     <br>
                     <div class="appoin_client">
-                        <p class="titlerec">Client</p>
-                        <p>Nom: <span>${appointment.worker.name}</span></p>
-                        <p>Tél: <span>${appointment.worker.phone}</span></p>
+                        <p class="titlerec">Tirhaka</p>
+                        <p>Nom: <span>${appointment.worker ? appointment.worker.name : "Tirhaka"}</span></p>
+                        <p>Tél: <span>${appointment.worker ? appointment.worker.phone : "Tirhaka"}</span></p>
                     </div>
                     <br>
                     <div class="action_btn">
-                        <a class="btnA _Acc">En cours</a>
-                        <a class="btnA _Anu">Annuler</a>
+                        <a class="btnA _Acc">${appointment.statut !== "waiting" ? appointment.statut : "En attent"}</a>
+                        <a class="btnA _Anu" ${appointment.statut !== "waiting" ? 'disabled' : ''}>Annuler</a>
                     </div>
                 </div>
                         `;
@@ -194,6 +222,7 @@ const RendDataClient = async () => {
 
         }
     } catch (error) {
+        console.log(error);
         vide_message.innerText = "Erreur inconnu, actualisez";
 
     }
