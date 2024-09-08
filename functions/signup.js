@@ -5,7 +5,7 @@ async function SignUp() {
     const password1 = document.getElementById('password1').value;
     const loading = document.getElementById('loading');
 
-    if (full_name && email && phone && address && password) {
+    if (full_name && phone && password) {
         if (password === password1) {
             loading.removeAttribute("onclick");
             loading.innerText = "En cours ...";
