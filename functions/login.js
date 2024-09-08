@@ -20,7 +20,7 @@ async function Login() {
             loading.setAttribute("onclick", "Login()");
             loading.innerText = "Connecter";
         } else if (response.token) {
-            sessionStorage.setItem('tirhaka', response.token);
+            sessionStorage.setItem('magica', response.token);
             loading.innerText = "Connecté";
             window.location.href = "/dashboard";
         } else if (response.ee) {

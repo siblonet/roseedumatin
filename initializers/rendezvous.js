@@ -1,5 +1,5 @@
 function Logged_Rend() {
-    const token = sessionStorage.getItem('tirhaka');
+    const token = sessionStorage.getItem('magica');
 
     if (token) {
         const homconnec = document.getElementById('homconnec');
@@ -88,7 +88,7 @@ const DateSelectedAddEven = (deta) => {
 
 function LastOptionUser() {
     nestnavigator.innerText = "Étape 4";
-    const token = sessionStorage.getItem('tirhaka');
+    const token = sessionStorage.getItem('magica');
     //const perset = `${_id}°${name}°${role}°${phone}°${allow}°${email}°${address}`;
     if (token) {
 
@@ -157,7 +157,7 @@ const CreatUser = async () => {
                 return false;
             } else if (response.token) {
 
-                sessionStorage.setItem('tirhaka', response.token);
+                sessionStorage.setItem('magica', response.token);
 
                 const splo = response.token.split("°");
                 return thisiswhat(`${splo[0]}`);
@@ -248,7 +248,7 @@ const RendServicesAdmin = async (service_type) => {
     serviceshtmlid.innerHTML = `<option value="">CHARGEMENT EN COURS...</option>`;
 
     try {
-        const SERVICES = await requesttoBackend('GET', 'tirhakaservicegetting');
+        const SERVICES = await requesttoBackend('GET', 'magicaservicegetting');
 
         // Filter services based on service_type
         const SERVICES_DATA = SERVICES.filter(tp => tp.servicetype === service_type);

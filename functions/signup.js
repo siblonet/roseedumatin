@@ -1,8 +1,6 @@
 async function SignUp() {
     const full_name = document.getElementById('full_name').value;
-    const email = document.getElementById('email').value;
     const phone = document.getElementById('phone').value;
-    const address = document.getElementById('address').value;
     const password = document.getElementById('password').value;
     const password1 = document.getElementById('password1').value;
     const loading = document.getElementById('loading');
@@ -17,8 +15,6 @@ async function SignUp() {
                 phone: phone,
                 password: password,
                 role: "client",
-                address: address,
-                email: email,
                 pushtoken: "null",
                 allow: true
             };
@@ -31,7 +27,7 @@ async function SignUp() {
                 loading.setAttribute("onclick", "SignUp()");
                 loading.innerText = "CREER";
             } else if (response.token) {
-                sessionStorage.setItem('tirhaka', response.token);
+                sessionStorage.setItem('magica', response.token);
                 window.location.href = "/dashboard";
                 console.log(response.token);
                 loading.innerText = "Compte créé";

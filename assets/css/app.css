@@ -2471,7 +2471,7 @@ nav.navbar .mainmenu>.menu-item-has-children:hover .stylen-submenu li {
     Page Start Banner
 -------------------------*/
 .page-start-banner {
-  background: url(../media/banner/bg.png);
+  background: url(../media/backgrounds/slider1.jpg);
   background-position: top center;
   background-repeat: no-repeat;
   background-size: cover;
