@@ -1,5 +1,5 @@
 function Logged_Team() {
-    const token = sessionStorage.getItem('tirhaka');
+    const token = sessionStorage.getItem('magica');
     const homconnec = document.getElementById('homconnec');
 
     if (token) {

@@ -4,7 +4,7 @@ let servicedomicileexis;
 
 
 function Logged_Checker() {
-    const token = sessionStorage.getItem('tirhaka');
+    const token = sessionStorage.getItem('magica');
 
     if (token) {
         ///const perset = `${_id}°${name}°${role}°${phone}°${allow}`;
@@ -31,7 +31,7 @@ const RendDataAdmin = async () => {
 
 
     try {
-        const APPOINTMEN_DATA = await requesttoBackend('GET', 'tirhakaappointmentgettingall');
+        const APPOINTMEN_DATA = await requesttoBackend('GET', 'magicaappointmentgettingall');
         if (APPOINTMEN_DATA.length > 0) {
             vide_message.innerText = "Les rendez-vous programmé";
 
@@ -88,8 +88,8 @@ const RendDataAdmin = async () => {
     lieu: string;
     message: string;
     statut: string;
-    client: TirhakaUserEntity;
-    worker: TirhakaUserEntity;
+    client: magicaUserEntity;
+    worker: magicaUserEntity;
     price: number;
     payment_method: string;
     payment_status: string;
@@ -107,7 +107,7 @@ const AcceptingAppointmen = async (ida) => {
         worker: user_id
     };
 
-    const response = await requesttoBackend('PUT', `tirhakaappointmentstatusupdate/${ida}`, data);
+    const response = await requesttoBackend('PUT', `magicaappointmentstatusupdate/${ida}`, data);
 
     if (!response) {
         alert("Échec, vérifiez votre connexion ou essayez plus tard.");
@@ -183,7 +183,7 @@ const RendDataClient = async () => {
     add_service.innerHTML = "";
 
     try {
-        const APPOINTMEN_DATA = await requesttoBackend('GET', `tirhakaappointmentgettingone/${user_id}`);
+        const APPOINTMEN_DATA = await requesttoBackend('GET', `magicaappointmentgettingone/${user_id}`);
         if (APPOINTMEN_DATA.length > 0) {
             vide_message.innerText = "Vos rendez-vous";
 
@@ -200,9 +200,9 @@ const RendDataClient = async () => {
                     </div>
                     <br>
                     <div class="appoin_client">
-                        <p class="titlerec">Tirhaka</p>
-                        <p>Nom: <span>${appointment.worker ? appointment.worker.name : "Tirhaka"}</span></p>
-                        <p>Tél: <span>${appointment.worker ? appointment.worker.phone : "Tirhaka"}</span></p>
+                        <p class="titlerec">magica</p>
+                        <p>Nom: <span>${appointment.worker ? appointment.worker.name : "magica"}</span></p>
+                        <p>Tél: <span>${appointment.worker ? appointment.worker.phone : "magica"}</span></p>
                     </div>
                     <br>
                     <div class="action_btn">
@@ -238,8 +238,8 @@ const RendDataClient = async () => {
     lieu: string;
     message: string;
     statut: string;
-    client: TirhakaUserEntity;
-    worker: TirhakaUserEntity;
+    client: magicaUserEntity;
+    worker: magicaUserEntity;
     price: number;
     payment_method: string;
     payment_status: string;
@@ -325,7 +325,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 const SupprimerServiceService = async (serio, ido) => {
-    const response = await requesttoBackend('DELETE', `removetirhakaserviceadd/${serio}/${ido}`);
+    const response = await requesttoBackend('DELETE', `removemagicaserviceadd/${serio}/${ido}`);
     if (!response) {
         alert("Échec, vérifiez votre connexion ou essayez plus tard.");
 
@@ -371,7 +371,7 @@ const AddService = async () => {
         };
 
         if (!servicesalonexis || !servicedomicileexis) {
-            const response = await requesttoBackend('POST', 'tirhakaservicecreation', data);
+            const response = await requesttoBackend('POST', 'magicaservicecreation', data);
             if (!response) {
                 alert("Échec, vérifiez votre connexion ou essayez plus tard.");
 
@@ -384,7 +384,7 @@ const AddService = async () => {
                 loading.innerText = "Ajouter";
             }
         } else {
-            const response = await requesttoBackend('PUT', `tirhakaserviceadd/tirhakaservicespdate/${selectedServiceType}`, data.services);
+            const response = await requesttoBackend('PUT', `magicaserviceadd/magicaservicespdate/${selectedServiceType}`, data.services);
             if (!response) {
                 alert("Échec, vérifiez votre connexion ou essayez plus tard.");
 
@@ -404,7 +404,7 @@ const AddService = async () => {
 
 const SupprimerService = async (serid) => {
 
-    const response = await requesttoBackend('DELETE', `tirhakadeletingservice/${serid}`);
+    const response = await requesttoBackend('DELETE', `magicadeletingservice/${serid}`);
     if (!response) {
         alert("Échec, vérifiez votre connexion ou essayez plus tard.");
 
@@ -431,7 +431,7 @@ const RendServicesAdmin = async () => {
     vide_message.innerText = "Chargement ...";
 
     try {
-        const APPOINTMEN_DATA = await requesttoBackend('GET', 'tirhakaservicegetting');
+        const APPOINTMEN_DATA = await requesttoBackend('GET', 'magicaservicegetting');
         add_service.innerHTML = `
         <a style="align-self: flex-end !important; color: #007bff; padding: 10px; cursor: pointer;" onclick="AddShow()">
             Ajouter un service

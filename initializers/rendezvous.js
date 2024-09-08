@@ -103,9 +103,6 @@ function LastOptionUser() {
         const phonea = document.getElementById("phone");
         phonea.value = thisiswhat(`${splo[3]}`);
         phonea.disabled = true;
-        const emaila = document.getElementById("email");
-        emaila.value = thisiswhat(`${splo[5]}`);
-        emaila.disabled = true;
         const addressa = document.getElementById("address");
         addressa.value = thisiswhat(`${splo[6]}`);
         addressa.disabled = true;
@@ -125,12 +122,10 @@ const CreatUser = async () => {
     // Getting input values
     const full_name = document.getElementById("full_name").value;
     const phonea = document.getElementById("phone").value;
-    const emaila = document.getElementById("email").value;
-    const addressa = document.getElementById("address").value;
     const password = document.getElementById("password").value;
     const password1 = document.getElementById("password1").value;
 
-    if (full_name && phonea && emaila && addressa && password) {
+    if (full_name && phonea && password) {
         if (password === password1) {
             loading.removeAttribute("onclick");
             loading.innerText = "En cours ...";
@@ -140,8 +135,6 @@ const CreatUser = async () => {
                 phone: phonea,
                 password: password,
                 role: "client",
-                address: addressa,
-                email: emaila,
                 pushtoken: "null",
                 allow: true
             };
@@ -220,7 +213,7 @@ async function CreatAppointment() {
                 loading.innerText = "En cours ...";
             };
 
-            const response = await requesttoBackend('POST', 'tirhakaappointmentcreation', appoint_data_tosent);
+            const response = await requesttoBackend('POST', 'magicaappointmentcreation', appoint_data_tosent);
             if (!response) {
                 alert("Échec, vérifiez votre connexion ou essayez plus tard.");
 

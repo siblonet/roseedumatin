@@ -1,5 +1,5 @@
 function Logged_Checker() {
-    const token = sessionStorage.getItem('tirhaka');
+    const token = sessionStorage.getItem('magica');
 
     if (token) {
 
@@ -18,7 +18,7 @@ async function initDataLoader() {
 
 
     try {
-        //const online = await requesttoBackend('GET', 'tirhakaservicegetting');
+        //const online = await requesttoBackend('GET', 'magicaservicegetting');
 
     } catch (error) {
         console.log(error)

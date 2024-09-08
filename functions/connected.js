@@ -1,5 +1,5 @@
 function blockPage() {
-    const token = sessionStorage.getItem('tirhaka');
+    const token = sessionStorage.getItem('magica');
 
     if (token) {
 

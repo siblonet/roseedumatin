@@ -12,7 +12,7 @@ async function Login() {
             password: password,
 
         };
-        const response = await requesttoBackend('POST', 'tirhakaconnexion', data);
+        const response = await requesttoBackend('POST', 'magicaconnexion', data);
 
         if (!response) {
             alert("Échec, vérifiez votre connexion ou essayez plus tard.");
