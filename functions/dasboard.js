@@ -49,7 +49,6 @@ const RendDataAdmin = async () => {
                             <div class="appoin_client">
                                 <p class="titlerec">Client</p>
                                 <p>Nom: <span>${appointment.client.name}</span></p>
-                                <p>Domicile: <span>${appointment.client.address}</span></p>
                                 <p>Tél: <span>${appointment.client.phone}</span></p>
                                 <p>Message: <span>${appointment.message}</span></p>
                             </div>
@@ -146,7 +145,6 @@ const RendMesCharge = async () => {
                         <div class="appoin_client">
                             <p class="titlerec">Client</p>
                             <p>Nom: <span>${appointment.client.name}</span></p>
-                            <p>Domicile: <span>${appointment.client.address}</span></p>
                             <p>Tél: <span>${appointment.client.phone}</span></p>
                             <p>Message: <span>${appointment.message}</span></p>
                         </div>
@@ -438,8 +436,8 @@ const RendServicesAdmin = async () => {
         </a>
 `;
         if (APPOINTMEN_DATA.length > 0) {
-            servicesalonexis = APPOINTMEN_DATA.find(ee => ee.servicetype == "SALON") ? true : false;
-            servicedomicileexis = APPOINTMEN_DATA.find(ee => ee.servicetype == "DOMICILE") ? true : false;
+            servicesalonexis = APPOINTMEN_DATA.find(ee => ee.servicetype == "PACKAGE") ? true : false;
+            servicedomicileexis = APPOINTMEN_DATA.find(ee => ee.servicetype == "PARTICULIER") ? true : false;
 
             vide_message.innerText = "LISTE DE VOS SERVICES";
             APPOINTMEN_DATA.forEach((servic, index) => {
@@ -506,8 +504,8 @@ const RendServicesReloada = async (APPOINTMEN_DAT) => {
     appoint_data.innerHTML = "";
 
     if (APPOINTMEN_DAT.length > 0) {
-        servicesalonexis = APPOINTMEN_DAT.find(ee => ee.servicetype == "SALON") ? true : false;
-        servicedomicileexis = APPOINTMEN_DAT.find(ee => ee.servicetype == "DOMICILE") ? true : false;
+        servicesalonexis = APPOINTMEN_DAT.find(ee => ee.servicetype == "PACKAGE") ? true : false;
+        servicedomicileexis = APPOINTMEN_DAT.find(ee => ee.servicetype == "PARTICULIER") ? true : false;
 
         APPOINTMEN_DAT.forEach((servic, index) => {
             const appointmentHTML = `
