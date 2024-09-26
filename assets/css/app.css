@@ -90,7 +90,7 @@ STYLE SHEET INDEXING
 
 
 *::-webkit-scrollbar-track {
-  background-color: #c98115;
+  background-color: #8a1242;
 }
 
 *::-webkit-scrollbar {
@@ -100,7 +100,7 @@ STYLE SHEET INDEXING
 
 *::-webkit-scrollbar-thumb {
   border-radius: 12px;
-  background-color: #f3d034;
+  background-color: #D51A65;
   box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
   -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, .3);
 }
