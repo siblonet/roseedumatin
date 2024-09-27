@@ -5640,3 +5640,16 @@ input[type='radio']:checked {
     font-size: 18px;
   }
 }
+
+.longimage {
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  align-self: center;
+}
+
+.longimage .longimag {
+  width: 100% !important;
+  height: 100%;
+}

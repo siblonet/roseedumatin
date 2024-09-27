@@ -53,8 +53,8 @@
     align-self: center;
 }
 
-.longimage img {
-    width: 100%;
+.longimage .longimag {
+    width: 100% !important;
     height: 100%;
 }
 
